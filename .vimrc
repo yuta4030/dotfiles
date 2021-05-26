@@ -64,25 +64,3 @@ set hlsearch
 " ESC連打でハイライト解除
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
-" ----------
-" jq
-" ----------
-command! -nargs=? Jq call s:Jq(<f-args>)
-function! s:Jq(...)
-  if 0 == a:0
-    let l:arg = "."
-  else
-    let l:arg = a:1
-  endif
-  execute "%! jq \'" . l:arg . "\'"
-  set filetype=json
-endfunction
-
-nnoremap <Leader>Jn :Jq .items[].name<CR>
-
-" 挿入モード終了時に IME 状態を保存しない
-inoremap <silent> <Esc> <Esc>
-inoremap <silent> <C-[> <Esc>
-
-" 「日本語入力固定モード」切り替えキー
-inoremap <silent> <C-j> <C-^>
