@@ -108,7 +108,7 @@ bindkey '^]' peco-src
 
 # 環境変数
 ## 履歴保存管理
-HISTFILE=$ZDOTDIR/.zsh-history
+HISTFILE="$HOME/.zsh_history"
 HISTSIZE=100000
 SAVEHIST=1000000
 
